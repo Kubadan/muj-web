@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <title>Moje Webová Stránka</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+
+                <!-- Logo / Jméno -->
+                <a href="#home" class="logo">Kuba Daněk</a>
+
+                <!-- Navigační menu -->
+                <nav class="nav">
+                    <a href="#home" class="nav-link active">Domů</a>
+                    <a href="#about" class="nav-link">O mně</a>
+                    <a href="#skills" class="nav-link">Dovednosti</a>
+                    <a href="#works" class="nav-link">Portfólio</a>
+                    <a href="#contact" class="nav-link">Kontakty</a>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+
+                <!-- Levá strana - text -->
+                <div class="hero-text">
+                    <h1>
+                        Zdravím,<br>
+                        jmenuji se <span class="highlight">Kuba</span><br>
+                        a jsem Profesionální Prokrastinátor
+                    </h1>
+
+                    <p>Creative and passionate about building beautiful digital experiences.</p>
+
+                    <a href="#contact" class="btn btn-primary">Contact</a>
+                </div>
+
+                <!-- Pravá strana - fotka -->
+                <div class="hero-image">
+                    <svg class="image-mask" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- SVG maska bude tady - vytvoříme v kroku 6 -->
+                        <defs>
+                            <clipPath id="circleMask">
+                                <path fill="#FF0066"
+                                    d="M34.1,-61C42.6,-54.3,46.7,-41.8,48.7,-30.7C50.7,-19.6,50.6,-9.8,54.7,2.3C58.7,14.5,66.9,28.9,63.1,36.9C59.3,44.8,43.4,46.2,30.8,46.1C18.3,46.1,9.2,44.6,-2.8,49.4C-14.8,54.3,-29.5,65.5,-34.6,61.2C-39.8,57,-35.3,37.4,-37.4,24.6C-39.6,11.8,-48.4,5.9,-56.8,-4.8C-65.2,-15.6,-73.1,-31.2,-69.2,-41C-65.3,-50.8,-49.7,-54.9,-36.2,-58.7C-22.7,-62.5,-11.3,-66,0.7,-67.3C12.8,-68.6,25.7,-67.7,34.1,-61Z"
+                                    transform="translate(200 200) scale(2.2)" />
+                            </clipPath>
+                        </defs>
+                        <image href="images/me.jpg" width="600" height="600" clip-path="url(#circleMask)" />
+                    </svg>
+                </div>
+
+            </div>
+        </div>
+    </section>
