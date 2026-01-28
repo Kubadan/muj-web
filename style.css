@@ -95,6 +95,29 @@ body {
   background-color: var(--primary-color);
 }
 
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.nav-link:active::before {
+  width: 300px;
+  height: 300px;
+}
+
 .hero {
   min-height: 100vh;
   display: flex;
@@ -206,3 +229,168 @@ body {
     gap: var(--spacing-sm);
   }
 }
+
+/* ===== SEKCE DOVEDNOSTI - ZÁKLAD ===== */
+
+.skills {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--light-bg);
+}
+
+/* Nadpisy sekcí */
+.section-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--dark-text);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  
+  /* Gradient text */
+  background: linear-gradient(135deg, var(--primary-color), var(--dark-text));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: #6B7280;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  font-weight: 500;
+}
+
+/* Grid layout pro desktop */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 sloupce vedle sebe */
+  gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Kartička */
+.skill-card {
+  background-color: var(--white);
+  padding: var(--spacing-lg);
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Hover efekt na kartičku */
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Ikona */
+.skill-icon {
+  background: linear-gradient(90deg, #2A7B9B 0%, #57C785 50%, #EDEDD5 100%);
+  font-size: 48px;
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--spacing-md);
+  
+  /* Flexbox pro centrování emoji */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  background-color: #EEF2FF;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* Hover efekt na ikonu */
+.skill-card:hover .skill-icon {
+  background: linear-gradient(90deg, #2A7B9B 0%, #57C785 50%, #EDEDD5 100%);
+  color: var(--white);
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* Texty */
+.skill-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark-text);
+  margin-bottom: var(--spacing-sm);
+  transition: color 0.3s ease;
+}
+
+.skill-card:hover .skill-title {
+  color: var(--primary-color);
+}
+
+.skill-description {
+  font-size: 14px;
+  color: #6B7280;
+  line-height: 1.6;
+}
+
+/* ===== RESPONSIVE DESIGN (Media Queries) ===== */
+
+/* Tablet (menší než 1024px) -> 2 sloupce */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .section-title {
+    font-size: 40px;
+  }
+}
+
+/* Mobil (menší než 768px) -> 1 sloupec */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr; /* Pod sebou */
+    gap: var(--spacing-md);
+  }
+  
+  .section-title {
+    font-size: 32px;
+  }
+  
+  .section-subtitle {
+    font-size: 16px;
+  }
+  
+  .skill-card {
+    padding: var(--spacing-md);
+  }
+  
+  .skill-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 32px;
+  }
+}
+
+.skill-card {
+  border-left: 4px solid var(--primary-color);  /* Modrý pruh vlevo */
+}
+
+.skill-card:nth-child(2) {
+  border-left-color: #10B981;  /* Zelená */
+}
+
+.skill-card:nth-child(3) {
+  border-left-color: #F59E0B;  /* Oranžová */
+}
+
+.skill-card:nth-child(4) {
+  border-left-color: #EF4444;  /* Červená */
+}
+
+.skill-card:nth-child(5) {
+  border-left-color: #8B5CF6;  /* Fialová */
+}
+
+.skill-card:nth-child(6) {
+  border-left-color: #EC4899;  /* Růžová */
+}
+
+
