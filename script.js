@@ -35,37 +35,39 @@ window.addEventListener('scroll', () => {
 
 // ===== PORTFOLIO FILTER - FILTROVÁNÍ PROJEKTŮ PODLE KATEGORIE =====
 
+// ===== VYLEPŠENÝ PORTFOLIO FILTER =====
+
 function initPortfolioFilter() {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const portfolioCards = document.querySelectorAll('.portfolio-card');
   
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-      // Odeber .active ze všech tlačítek
+      // Aktivní tlačítko
       filterButtons.forEach(btn => btn.classList.remove('active'));
-      
-      // Přidej .active na kliknuté tlačítko
       button.classList.add('active');
       
-      // Získej kategorii k filtrování
       const filterValue = button.getAttribute('data-filter');
       
-      // Projdi všechny karty a zobraz/skryj podle kategorie
-      portfolioCards.forEach(card => {
+      // Počítadlo pro stagger efekt
+      let visibleIndex = 0;
+      
+      portfolioCards.forEach((card, index) => {
         const cardCategory = card.getAttribute('data-category');
+        const shouldShow = filterValue === 'all' || cardCategory === filterValue;
         
-        if (filterValue === 'all' || cardCategory === filterValue) {
-          // Zobraz kartu
+        if (shouldShow) {
+          // Zobraz kartu s postupným zpožděním
           card.style.display = 'block';
           
-          // Přidej animaci
           setTimeout(() => {
             card.style.opacity = '1';
             card.style.transform = 'scale(1)';
-          }, 10);
+          }, visibleIndex * 100); // Každá karta o 100ms později
           
+          visibleIndex++;
         } else {
-          // Skryj kartu s animací
+          // Skryj kartu
           card.style.opacity = '0';
           card.style.transform = 'scale(0.8)';
           
@@ -77,6 +79,8 @@ function initPortfolioFilter() {
     });
   });
 }
+
+document.addEventListener('DOMContentLoaded', initPortfolioFilter);
 
 // Spusť filtr když je stránka načtena
 document.addEventListener('DOMContentLoaded', initPortfolioFilter);

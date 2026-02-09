@@ -230,6 +230,17 @@ body {
   }
 }
 
+/* Animace při filtrování */
+.portfolio-card {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-card[style*="display: none"] {
+  opacity: 0;
+  transform: scale(0.8);
+}
 /* ===== SEKCE DOVEDNOSTI - ZÁKLAD ===== */
 
 .skills {
@@ -720,4 +731,164 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+/* ===== SEKCE KONTAKT ===== */
+
+.contact {
+  padding: 5rem 0;
+  background-color: var(--background);
+}
+
+.contact .section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #f8fafc;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.contact .section-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responzivita */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Kontaktní položky */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background-color: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.contact-item:hover {
+  transform: translateX(15px);
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.contact-icon {
+  font-size: 1.75rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+}
+
+.contact-text h4 {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-text p,
+.contact-text a {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  text-decoration: none;
+}
+
+.contact-text a:hover {
+  color: var(--primary);
+}
+
+/* Formulář */
+.contact-form {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.875rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: #f8fafc;
+  color: #1e293b;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--success);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #94a3b8;
+  opacity: 0.7;
+}
+
+/* Submit tlačítko */
+.contact-form .btn-primary {
+  width: auto;
+  padding: 1rem 3rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.contact-form .btn-primary:hover {
+  background: linear-gradient(135deg, var(--secondary), var(--success));
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
 }
